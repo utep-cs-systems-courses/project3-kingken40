@@ -13,19 +13,17 @@ all:run.elf
 
 
 #additional rules for files
-run.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o main.o switches.o stateMachines.o wdt_handler.o
-led.o  ../lib/libTimer.a
+run.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o main.o switches.o buzzer.o stateMachines.o wdt_handler.o led.o  ../lib/libTimer.a
 
-	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd
 
 load: run.elf
 	msp430loader.sh $^
 
 clean:
-	rm -f *.o *.elf
+	rm -f *.o *.elf *# *~
 
-switches.o: switches.h
-
+switches.o: switches.h stateMachines.h
 led.o: led.c led.h
-
 stateMachines.o: led.h stateMachines.h
+buzzer.o: buzzer.h

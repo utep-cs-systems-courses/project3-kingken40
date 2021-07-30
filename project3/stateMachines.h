@@ -1,11 +1,8 @@
-#ifndef stateMachine_included
-#define stateMachine_included
+#ifndef stateMachines_included
+#define stateMachines_included
 
+extern char state;
 void state_advance();
-void red_toggle_on();
-void red_toggle_off();
-void green_toggle_on();
-void green_toggle_off();
 
 
 #endif // included

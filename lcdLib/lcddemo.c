@@ -16,8 +16,14 @@ main()
 
   clearScreen(COLOR_BLUE);
 
-  drawString5x7(20,20, "hello", COLOR_GREEN, COLOR_RED);
+  drawString5x7(20,20, "Ken", COLOR_GREEN, COLOR_RED);
 
   fillRectangle(30,30, 60, 60, COLOR_ORANGE);
   
+
+  short col = 50, row = 10;
+  for (int i = 0; i < 20; i ++){
+    drawPixel(col+i, row+i, COLOR_WHITE);
+    drawPixel(col-i, row+i, COLOR_WHITE);
+  }
 }

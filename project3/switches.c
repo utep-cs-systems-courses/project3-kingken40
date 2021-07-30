@@ -38,4 +38,24 @@ void switch_interrupt_handler()
   switch_state_down_3 = (p2val & SW3) ? 0 : 1; /* 0 when SW3 is up */
   switch_state_down_4 = (p2val & SW4) ? 0 : 1; /* 0 when SW4 is up */
   switch_state_changed = 1;
+
+if(switch_state_down_1){
+  state = 1;
+  state_advance();
+ }
+
+if(switch_state_down_2){
+  state = 2;
+  state_advance();
+ }
+
+if(switch_state_down_3){
+  state = 3;
+  state_advance();
+ }
+
+if(switch_state_down_4){
+  state = 4;
+  state_advance();
+ }
 }

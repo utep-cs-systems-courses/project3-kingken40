@@ -5,6 +5,7 @@
 #include "lcddraw.h"
 
 
+
 /** Draw single pixel at x,row 
  *
  *  \param col Column to draw to
@@ -115,3 +116,18 @@ void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
   fillRectangle(colMin + width, rowMin, 1, height, colorBGR);
 }
 
+void shape_red(){
+  my_shape(COLOR_RED);
+}
+
+void shape_blue(){
+  my_shape(COLOR_BLUE);
+}
+
+void shape_white(){
+  my_shape(COLOR_WHITE);
+}
+
+void my_shape(u_int color){
+  fillRectangle(40, 50, 30, 20, color);
+}
