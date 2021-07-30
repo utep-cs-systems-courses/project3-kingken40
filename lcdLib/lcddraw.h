@@ -5,8 +5,8 @@
 #ifndef lcddraw_included
 #define lcddraw_included
 
-extern int color;
-extern void my_shape(u_int color);
+extern int myColor;
+extern void my_shape();
 extern void shape_red();
 extern void shape_blue();
 extern void shape_white();

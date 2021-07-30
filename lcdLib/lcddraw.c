@@ -4,7 +4,7 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 
-
+int myColor = COLOR_RED;
 
 /** Draw single pixel at x,row 
  *
@@ -117,17 +117,17 @@ void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
 }
 
 void shape_red(){
-  my_shape(COLOR_RED);
+  myColor = COLOR_RED;
 }
 
 void shape_blue(){
-  my_shape(COLOR_BLUE);
+  myColor = COLOR_BLUE;
 }
 
 void shape_white(){
-  my_shape(COLOR_WHITE);
+  myColor = COLOR_WHITE;
 }
 
-void my_shape(u_int color){
-  fillRectangle(40, 50, 30, 20, color);
+void my_shape(){
+  fillRectangle(40, 50, 30, 20, myColor);
 }

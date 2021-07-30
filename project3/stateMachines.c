@@ -13,14 +13,14 @@ void state_advance(){
   
   if(state == 1){
     clearScreen(COLOR_GREEN);
-    //shape_red();
+    shape_red();
    
   }
   else if(state == 2){ 
-   
+    shape_blue();
   }
   else if(state == 3){ 
-    
+    shape_white();
   }
   else if(state == 4){ 
   }
