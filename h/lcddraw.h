@@ -10,6 +10,7 @@ extern void my_shape();
 extern void shape_red();
 extern void shape_blue();
 extern void shape_white();
+extern void shape_yellow();
 
 /** Draw single pixel at col, row 
  *

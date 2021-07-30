@@ -3,7 +3,7 @@
 #include "led.h"
 #include "stateMachines.h"
 
-char state = 0;
+char state = 0; // STATE VARIABLE INITIALLLY 0, DECLARED IN sM.h
 char switch_state_down_1, switch_state_changed; /* effectively boolean */
 char switch_state_down_2; /* effectively boolean */
 char switch_state_down_3; /* effectively boolean */
@@ -39,7 +39,8 @@ void switch_interrupt_handler()
   switch_state_down_4 = (p2val & SW4) ? 0 : 1; /* 0 when SW4 is up */
   switch_state_changed = 1;
 
-if(switch_state_down_1){
+  // changeing state when switch is pressed
+  if(switch_state_down_1){ 
   state = 1;
   state_advance();
  }

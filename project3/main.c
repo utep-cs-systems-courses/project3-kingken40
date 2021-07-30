@@ -9,13 +9,13 @@
 
 #define LED BIT6
 short redrawScreen = 1;
-char state1 = 1;
+
 
 int main(void) {
   configureClocks();/* setup master oscillator, CPU & peripheral clocks */
 
   led_init();
-  buzzer_init();
+  //buzzer_init();
   switch_init();
   lcd_init();
  
@@ -26,24 +26,27 @@ int main(void) {
 
   P1DIR |= LED;
   P1OUT |= LED;
-
-  while(1){
+  //Reset redrawScreen after 125 interrupts, Draws the shape 
+  while(1){ //  always true, if redraw is 0, screen is still clear, LED OFF, CPU OFF
+    // after 125 interrupts, redraw is true hen resets. and shape is drawn
     if(redrawScreen){
       redrawScreen = 0;
       my_shape();
-      clearScreen(COLOR_YELLOW);
-      
+      // clearing shape once shape is drawn, comment to leave shape solid on screen
+      // LED indicating cpu will sleep when clearing screen.
+      // LED illuminates once redraw is true and screen is drawing
+      clearScreen(COLOR_GREEN); 
     }
     P1OUT &= ~LED; //LED OFF
     or_sr(0x10); //CPU OFF
     P1OUT |= LED; //LED ON
   }
 }
-
+// redraws the screen at 125 interrupts, resets count after interrrupt occurs
 void wdt_c_handler() {
   static int secCount = 0;
   secCount ++;
-  if (secCount == 75) {
+  if (secCount == 125) {
     redrawScreen = 1;
     secCount = 0;
   }

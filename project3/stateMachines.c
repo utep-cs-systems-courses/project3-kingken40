@@ -7,7 +7,7 @@
 #include "lcddraw.h"
 #include "../lcdLib/lcdutils.h"
 #include "../lcdLib/lcddraw.h"
-
+// Checks what state it is in, clears screen and changes shape to color
 void state_advance(){
 
   
@@ -16,12 +16,16 @@ void state_advance(){
     shape_red();
    
   }
-  else if(state == 2){ 
+  else if(state == 2){
+    clearScreen(COLOR_GREEN);
     shape_blue();
   }
-  else if(state == 3){ 
+  else if(state == 3){
+    clearScreen(COLOR_GREEN);
     shape_white();
   }
-  else if(state == 4){ 
+  else if(state == 4){
+    clearScreen(COLOR_GREEN);
+    shape_yellow();
   }
 }
