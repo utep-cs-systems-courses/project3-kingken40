@@ -10,7 +10,6 @@
 void switch_init();
 
 void switch_interrupt_handler();
-extern char interruptTime;
 extern char switch_state_down_1, switch_state_changed; /* effectively boolean */
 extern char switch_state_down_2; /* effectively boolean */
 extern char switch_state_down_3; /* effectively boolean */
