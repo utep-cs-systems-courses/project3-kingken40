@@ -2,7 +2,6 @@
 #include "stateMachines.h"
 #include "led.h"
 #include "switches.h"
-#include "buzzer.h"
 #include "lcdutils.h"
 #include "lcddraw.h"
 #include "../lcdLib/lcdutils.h"

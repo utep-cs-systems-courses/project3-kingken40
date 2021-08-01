@@ -13,7 +13,7 @@ all:run.elf
 
 
 #additional rules for files
-run.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o main.o switches.o buzzer.o stateMachines.o wdt_handler.o led.o  ../lib/libTimer.a
+run.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o main.o switches.o stateMachines.o wdt_handler.o led.o  ../lib/libTimer.a
 
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd
 
@@ -23,7 +23,7 @@ load: run.elf
 clean:
 	rm -f *.o *.elf *# *~
 
-switches.o: switches.h stateMachines.h
-led.o: led.c led.h
-stateMachines.o: led.h stateMachines.h
-buzzer.o: buzzer.h
+switches.o: switches.h stateMachines.h stateMachines.s
+led.o: led_c.s led.h 
+stateMachines.o: led.h stateMachines.h stateMachines.s
+#buzzer.o: buzzer.h
